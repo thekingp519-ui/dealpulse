@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "DealPulse \u2014 Price History & Deal Aggregator",
+  "version": "1.0.0",
+  "description": "Real-time price history tracker, cross-store comparison (Amazon, Flipkart, Zepto), and automated coupon discovery.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.amazon.in/*",
+    "*://*.flipkart.com/*",
+    "http://localhost:3000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.amazon.in/*",
+        "*://*.flipkart.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "DealPulse Tracker Active"
+  }
+}
